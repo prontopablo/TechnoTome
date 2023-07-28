@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
-    }, 250); // 3000ms = 3 seconds
+    }, 3000); // 3000ms = 3 seconds
 
     // Clean up the timeout to avoid memory leaks
     return () => clearTimeout(loadingTimeout);

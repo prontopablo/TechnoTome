@@ -26,7 +26,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #00b7ff; 
-  animation: pulsate .25s ease-in-out infinite; 
+  animation: pulsate 3s ease-in-out infinite; 
 }
 
 @keyframes pulsate {

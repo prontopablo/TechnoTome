@@ -1,18 +1,26 @@
 /* HomePage.js */
-import React, { useState} from 'react';
+import React, {useState, useEffect} from 'react';
+import ReactDOM from 'react-dom';
 import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from '@react-three/drei';
+import BurgerMenu from './BurgerMenu';
+import DropdownContent from './DropdownContent';
 import './HomePage.css';
+import logo from './images/TechnoTomeLogo.png';
 
-const ModelViewer = ({ url }) => {
+const ModelLoader = ({ url, onModelLoad }) => {
   const gltf = useLoader(GLTFLoader, url);
 
   useFrame((state, delta) => {
     gltf.scene.rotation.y += 0.05 * delta; // Rotation speed
   });
 
-  return <primitive object={gltf.scene} receiveShadow castShadow />;
+  useEffect(() => {
+    onModelLoad(gltf.scene);
+  }, [gltf.scene, onModelLoad]);
+
+  return null;
 };
 
 const booksData = [
@@ -28,7 +36,7 @@ const booksData = [
   },
   {
     title: 'Akira Vol. 4',
-    description: "Akira is a Japanese cyberpunk manga series written and illustrated by Katsuhiro Otomo. Set in a post-apocalyptic Neo-Tokyo, the work uses conventions of the cyberpunk genre to detail a saga of turmoil.",
+    description: "Set off by the bullet of a would-be assassin, the godlike telekinetic fury of the superhuman child Akira has once again demolished in seconds that which took decades and untold billions to build.",
     modelUrl: "/assets/akira.glb",
   },
   {
@@ -41,6 +49,16 @@ const booksData = [
 const HomePage = () => {
   const [currentBookIndex, setCurrentBookIndex] = useState(0);
   const currentBook = booksData[currentBookIndex];
+  const [currentModel, setCurrentModel] = useState(null);
+  const [isBurgerMenuOpen, setBurgerMenuOpen] = useState(false);
+
+  const handleBurgerMenuClick = () => {
+    setBurgerMenuOpen((prevState) => !prevState);
+  };
+
+  const handleDropdownClose = () => {
+    setBurgerMenuOpen(false);
+  };
 
   const handlePreviousBook = () => {
     setCurrentBookIndex((prevIndex) => (prevIndex === 0 ? booksData.length - 1 : prevIndex - 1));
@@ -50,8 +68,25 @@ const HomePage = () => {
     setCurrentBookIndex((prevIndex) => (prevIndex === booksData.length - 1 ? 0 : prevIndex + 1));
   };
 
+  const handleModelLoad = (model) => {
+    setCurrentModel(model);
+  };
+
   return (
     <div className="home-page">
+      <a href="/" className="logo-link">
+        <img src={logo} alt="Logo" className="logo" />
+      </a>
+      <BurgerMenu isOpen={isBurgerMenuOpen} onClick={handleBurgerMenuClick} />
+      {/* Render the DropdownContent outside the normal component hierarchy using React Portals */}
+      {isBurgerMenuOpen && (
+        <>
+          {ReactDOM.createPortal(
+            <DropdownContent isOpen={isBurgerMenuOpen} onCloseDropdown={handleDropdownClose} />,
+            document.body
+          )}
+        </>
+      )}
       <div className="book-container">
         {/* Arrow button for Previous */}
         <button className="arrow-button" onClick={handlePreviousBook}>
@@ -63,9 +98,12 @@ const HomePage = () => {
           >
             <ambientLight />
             <pointLight position={[10, 10, 10]} />
-            <ModelViewer url={currentBook.modelUrl} />
+            {currentModel && <primitive object={currentModel} receiveShadow castShadow />}
+            {currentBook && (
+              <ModelLoader url={currentBook.modelUrl} onModelLoad={handleModelLoad} />
+            )}
             <OrbitControls target={[0, 15, 0]} />
-          </Canvas>
+            </Canvas>
         </div>
         <div className="book-info">
           <h1>{currentBook.title}</h1>
