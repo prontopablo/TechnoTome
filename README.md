@@ -26,6 +26,6 @@ This is a personal project made over the course of 2 days to develop my skills i
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute this code for personal and commercial purposes.
+This project is licensed under the MIT License. Feel free to use, modify, and distribute this code for personal and commercial purposes.
 
 ---
