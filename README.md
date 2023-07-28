@@ -6,7 +6,7 @@
 
 Techno Tome is a web application designed as a sci-fi book subscription service that allows users to explore various science fiction and cyberpunk books in a 3D virtual environment. It provides an interactive and visually engaging way to discover and learn about this month's book titles.
 
-This is a personal project made over the course of 2 days to develop my skills in displaying 3D models in React web applications. Using React and Three.js, the application renders 3D models of book covers.
+This is a personal project made over the course of 2 days to develop my skills in using 3D models in React web applications. Using React and Three.js, the application renders 3D models of book covers.
 
 <br>
 
