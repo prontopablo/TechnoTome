@@ -27,22 +27,22 @@ const booksData = [
   {
     title: 'Neuromancer',
     description: "William Gibson's Neuromancer is one of the earliest works of cyberpunk. It is set on Earth in the near future and its plot involves mercenary and cyber-hacking characters who must work (or rebel) under the control of megacorporations and artificial intelligence.",
-    modelUrl: "/assets/neuromancer.glb",
+    modelUrl: process.env.PUBLIC_URL + "/assets/neuromancer.glb"
   },
   {
     title: 'Burning Chrome',
     description: "Burning Chrome tells the story of two freelance hackers—Automatic Jack, the narrator and a hardware specialist; and Bobby Quine, a software expert. Bobby becomes infatuated with a girl named Rikki and wants to become wealthy in order to impress her.",
-    modelUrl: "/assets/burning_chrome.glb",
+    modelUrl: process.env.PUBLIC_URL + "/assets/burning_chrome.glb",
   },
   {
     title: 'Akira Vol. 4',
     description: "Set off by the bullet of a would-be assassin, the godlike telekinetic fury of the superhuman child Akira has once again demolished in seconds that which took decades and untold billions to build.",
-    modelUrl: "/assets/akira.glb",
+    modelUrl: process.env.PUBLIC_URL + "/assets/akira.glb",
   },
   {
     title: 'Three Mystery Books',
     description: "With this subscription, you will also receive three other mystery books. These books will be selected by our team of experts and will be a surprise each month!",
-    modelUrl: "/assets/sci-fi_books.glb",
+    modelUrl: process.env.PUBLIC_URL + "/assets/sci-fi_books.glb",
   },
 ];
 
@@ -74,7 +74,7 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
-      <a href="/" className="logo-link">
+      <a href="https://prontopablo.github.io/TechnoTome/" className="logo-link">
         <img src={logo} alt="Logo" className="logo" />
       </a>
       <BurgerMenu isOpen={isBurgerMenuOpen} onClick={handleBurgerMenuClick} />
