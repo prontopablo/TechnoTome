@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+// App.js
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import HomePage from './HomePage';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 250); // 3000ms = 3 seconds
+
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(loadingTimeout);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {isLoading ? (
+        <div>
+          <div className="loading-bar">
+            <div className="glow progress"></div>
+          </div>
+        </div>
+      ) : (
+        <HomePage />
+      )}
     </div>
   );
 }
