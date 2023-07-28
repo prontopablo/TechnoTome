@@ -40,7 +40,7 @@ const booksData = [
     modelUrl: "/assets/akira.glb",
   },
   {
-    title: 'Three Other Mystery Books',
+    title: 'Three Mystery Books',
     description: "With this subscription, you will also receive three other mystery books. These books will be selected by our team of experts and will be a surprise each month!",
     modelUrl: "/assets/sci-fi_books.glb",
   },
