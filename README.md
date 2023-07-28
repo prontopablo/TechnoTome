@@ -1,4 +1,4 @@
-# Techno Tome - Sci-Fi Book Subscription Service
+# Techno Tome: Sci-Fi Book Subscription Service
 
 <img align="left" width="300" height="300" src="./src/images/TechnoTomeLogo.png">
 
@@ -8,7 +8,7 @@ Techno Tome is a web application designed as a sci-fi book subscription service 
 
 This is a personal project made over the course of 2 days to develop my skills in using 3D models in React web applications. Using React and Three.js, the application renders 3D models of book covers.
 
-<br>
+<br><br>
 
 ## Demo
 
