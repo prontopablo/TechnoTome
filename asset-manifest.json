@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TechnoTome/static/css/main.9a8e45ff.css",
-    "main.js": "/TechnoTome/static/js/main.0539d677.js",
+    "main.js": "/TechnoTome/static/js/main.28c66f4c.js",
     "static/media/TechnoTomeLogo.png": "/TechnoTome/static/media/TechnoTomeLogo.f27032a50cb9d04a8c1b.png",
     "index.html": "/TechnoTome/index.html",
     "main.9a8e45ff.css.map": "/TechnoTome/static/css/main.9a8e45ff.css.map",
-    "main.0539d677.js.map": "/TechnoTome/static/js/main.0539d677.js.map"
+    "main.28c66f4c.js.map": "/TechnoTome/static/js/main.28c66f4c.js.map"
   },
   "entrypoints": [
     "static/css/main.9a8e45ff.css",
-    "static/js/main.0539d677.js"
+    "static/js/main.28c66f4c.js"
   ]
 }
