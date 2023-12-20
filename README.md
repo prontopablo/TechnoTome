@@ -8,7 +8,7 @@ Techno Tome is a web application designed as a concept sci-fi book subscription 
 
 This is a personal project made over the course of 2 days to develop my skills in using 3D models in React.
 
-<br><br>
+<br><br><br><br>
 
 ## Demo
 
